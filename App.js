@@ -50,7 +50,7 @@ export default class App extends Component {
       <View>
         <Animated.View
           {...this.panResponder.panHandlers}
-          style={{ position: "absolute", height: 200, width, backgroundColor: "rgba(0,255,0,0.5)", zIndex: 999, transform: [{ scaleX: scaleTransform }, { scaleY: scaleTransform }] }} />
+          style={{ position: "absolute", height: 200, width, zIndex: 999, transform: [{ scaleX: scaleTransform }, { scaleY: scaleTransform }] }} />
         <Horizontal
           images={images}
           horizontalScrollViewRef={(ref) => this.horizontalScrollViewRef = ref}
