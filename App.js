@@ -15,15 +15,22 @@ export default class App extends Component {
   }
 
   handlePanResponderMove = (_, gestureState) => {
+    const isBlockingFurtherSwipes = this.activeIndexOnPanResponderGrant !== this.state.activeIndex;
+    if (isBlockingFurtherSwipes) {
+      return null;
+    }
     const horizontalSwipeVelocity = gestureState.vx;
     const horizontalSwipeVelocityThreshold = 0.7;
-    const hasSwipedRight = horizontalSwipeVelocity < (horizontalSwipeVelocityThreshold * -1)
-    console.log("hasSwipedRight", hasSwipedRight)
+    const hasSwipedRight = horizontalSwipeVelocity < (horizontalSwipeVelocityThreshold * -1);
+    if (hasSwipedRight) {
+      this.handleSwipe();
+    }
   }
 
   panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onPanResponderMove: this.handlePanResponderMove,
+    onPanResponderGrant: () => this.activeIndexOnPanResponderGrant = this.state.activeIndex,
   })
 
   handleSwipe = () => {
