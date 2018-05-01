@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-import { ScrollView, View, Text } from "react-native";
+import { ScrollView, View, Text, Animated } from "react-native";
 
 export default class Vertical extends Component {
     render() {
         return (
             <View>
-                <ScrollView>
+                <Animated.ScrollView
+                    onScroll={Animated.event(
+                        [{ nativeEvent: { contentOffset: { y: this.props.scaleAnimatedValue } } }],
+                        { useNativeDriver: true },
+                    )}
+                >
                     <View style={{ height: 200 }} />
                     <View style={{ backgroundColor: "rgb(255, 50, 50)" }}>
                         {Array.from({ length: 20 }).map((_, index) => (
@@ -19,7 +24,7 @@ export default class Vertical extends Component {
                             </View>
                         ))}
                     </View>
-                </ScrollView>
+                </Animated.ScrollView>
             </View>
         )
     }
