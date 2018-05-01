@@ -43,7 +43,7 @@ export default class App extends Component {
       <View>
         <View
           {...this.panResponder.panHandlers}
-          style={{ position: "absolute", height: 200, width, backgroundColor: "rgba(0,255,0,0.7)", zIndex: 999 }} />
+          style={{ position: "absolute", height: 200, width, zIndex: 999 }} />
         <Horizontal
           images={images}
           horizontalScrollViewRef={(ref) => this.horizontalScrollViewRef = ref}
