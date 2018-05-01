@@ -6,6 +6,7 @@ export default class Vertical extends Component {
         return (
             <View>
                 <Animated.ScrollView
+                    scrollEventThrottle={1}
                     onScroll={Animated.event(
                         [{ nativeEvent: { contentOffset: { y: this.props.scaleAnimatedValue } } }],
                         { useNativeDriver: true },
