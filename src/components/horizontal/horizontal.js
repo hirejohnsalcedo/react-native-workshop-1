@@ -12,7 +12,7 @@ const images = [
 export default class Horizontal extends Component {
     render() {
         return (
-            <View>
+            <View style={{ position: "absolute" }}>
                 <ScrollView
                     pagingEnabled={true}
                     horizontal={true}>
