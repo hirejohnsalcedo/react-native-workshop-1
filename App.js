@@ -44,6 +44,7 @@ export default class App extends Component {
     const scaleTransform = this.scaleAnimatedValue.interpolate({
       inputRange: [0, 50],
       outputRange: [1, 0],
+      extrapolate: "clamp",
     })
     return (
       <View>
